@@ -9,7 +9,6 @@ import random
 
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import (
-    CONF_COUNTRY,
     CONF_PASSWORD,
     CONF_SCAN_INTERVAL,
     CONF_USERNAME,
@@ -49,8 +48,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 
     client = YoinClient(
         username=entry.data[CONF_USERNAME],
-        password=entry.data[CONF_PASSWORD],
-        country=entry.data[CONF_COUNTRY],
+        password=entry.data[CONF_PASSWORD]
     )
 
     storage_dir = Path(f"{hass.config.path(STORAGE_DIR)}/{DOMAIN}")
@@ -121,24 +119,20 @@ class YoinDataUpdateCoordinator(DataUpdateCoordinator):
         """Refresh data for the first time when a config entry is setup."""
         self.data = await self.store.async_load() or {}
         if len(self.data):
-            if self.entry.data[CONF_COUNTRY] == "be":
-                # Map data item as YoinItem if it is restored from the data store
-                new_data = {}
-                for key, value in self.data.items():
-                    if not isinstance(value, YoinItem):
-                        new_data[key] = YoinItem(**value)
-                    else:
-                        new_data[key] = value
-                self.data = new_data
+            # Map data item as YoinItem if it is restored from the data store
+            new_data = {}
+            for key, value in self.data.items():
+                if not isinstance(value, YoinItem):
+                    new_data[key] = YoinItem(**value)
+                else:
+                    new_data[key] = value
+            self.data = new_data
         else:
             await super().async_config_entry_first_refresh()
 
     async def get_data(self) -> dict | None:
         """Get the data from the Yoin client."""
-        if self.entry.data[CONF_COUNTRY] == "be":
-            self.data = await self.hass.async_add_executor_job(self.client.fetch_data)
-        else:
-            self.data = await self.client.fetch_data()
+        self.data = await self.hass.async_add_executor_job(self.client.fetch_data)
         _LOGGER.debug(f"Fetched data: {self.data}")
         await self.store.async_save(self.data)
 
@@ -161,8 +155,6 @@ class YoinDataUpdateCoordinator(DataUpdateCoordinator):
                 _LOGGER.warning(f"Exception {exception}")
 
         if len(self.data):
-            if self.entry.data[CONF_COUNTRY] != "be":
-                return self.data
             # Map data item as YoinItem if it is restored from the data store
             new_data = {}
             for key, value in self.data.items():

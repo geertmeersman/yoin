@@ -6,7 +6,6 @@ from typing import Any
 
 from homeassistant.config_entries import ConfigEntry, ConfigFlow, OptionsFlow
 from homeassistant.const import (
-    CONF_COUNTRY,
     CONF_PASSWORD,
     CONF_SCAN_INTERVAL,
     CONF_USERNAME,
@@ -46,15 +45,6 @@ DEFAULT_ENTRY_DATA = YoinConfigEntryData(
     scan_interval=COORDINATOR_MIN_UPDATE_INTERVAL,
 )
 
-COUNTRY_SELECTOR = SelectSelector(
-    SelectSelectorConfig(
-        options=COUNTRY_CHOICES,
-        mode=SelectSelectorMode.DROPDOWN,
-        translation_key=CONF_COUNTRY,
-    )
-)
-
-
 class YoinCommonFlow(ABC, FlowHandler):
     """Base class for Yoin flows."""
 
@@ -78,7 +68,6 @@ class YoinCommonFlow(ABC, FlowHandler):
         client = YoinClient(
             username=user_input[CONF_USERNAME],
             password=user_input[CONF_PASSWORD],
-            country=user_input[CONF_COUNTRY],
         )
         profile = await self.hass.async_add_executor_job(client.login)
 
@@ -110,7 +99,6 @@ class YoinCommonFlow(ABC, FlowHandler):
                     type=TextSelectorType.PASSWORD, autocomplete="current-password"
                 )
             ),
-            vol.Required(CONF_COUNTRY, default=DEFAULT_COUNTRY): COUNTRY_SELECTOR,
             vol.Required(
                 CONF_SCAN_INTERVAL, default=COORDINATOR_MIN_UPDATE_INTERVAL
             ): NumberSelector(
@@ -125,31 +113,6 @@ class YoinCommonFlow(ABC, FlowHandler):
         return self.async_show_form(
             step_id="connection_init",
             data_schema=vol.Schema(fields),
-            errors=errors,
-        )
-
-    async def async_step_country(self, user_input: dict | None = None) -> FlowResult:
-        """Configure language."""
-        errors: dict = {}
-
-        if user_input is not None:
-            if user_input[CONF_COUNTRY] not in COUNTRY_CHOICES:
-                errors["base"] = "country_not_found"
-            if not errors:
-                self.new_entry_data |= YoinConfigEntryData(
-                    country=user_input[CONF_COUNTRY],
-                )
-                _LOGGER.debug(f"Country set to : {user_input[CONF_COUNTRY]}")
-                return self.finish_flow()
-
-        fields = {
-            vol.Required(CONF_COUNTRY): COUNTRY_SELECTOR,
-        }
-        return self.async_show_form(
-            step_id="country",
-            data_schema=self.add_suggested_values_to_schema(
-                vol.Schema(fields), {"country": self.initial_data.get(CONF_COUNTRY)}
-            ),
             errors=errors,
         )
 
@@ -279,7 +242,6 @@ class YoinOptionsFlow(YoinCommonFlow, OptionsFlow):
             menu_options=[
                 "username_password",
                 "scan_interval",
-                "country",
             ],
         )
 

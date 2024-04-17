@@ -2,13 +2,12 @@
   "config": {
     "step": {
       "connection_init": {
-        "title": "Nieuw Yoin-account",
+        "title": "Nieuwe Yoin-account",
         "description": "Stel uw Yoin-gebruikersaccount in",
         "data": {
           "username": "Gebruikersnaam",
           "password": "Wachtwoord",
-          "scan_interval": "Update interval (uren)",
-          "country": "Land"
+          "scan_interval": "Update interval (uren)"
         }
       }
     },
@@ -24,13 +23,6 @@
   },
   "options": {
     "step": {
-      "country": {
-        "title": "Verander uw land",
-        "description": "Dit moet normaal niet worden gebruikt",
-        "data": {
-          "country": "Land"
-        }
-      },
       "username_password": {
         "title": "Update uw gebruikersnaam en/of wachtwoord",
         "description": "Te doen wanneer u uw gebruikersnaam en/of wachtwoord op 'Yoin' hebt gewijzigd",
@@ -77,14 +69,6 @@
       },
       "sim_subscription": {
         "name": "Abonnement"
-      }
-    }
-  },
-  "selector": {
-    "country": {
-      "options": {
-        "be": "België",
-        "nl": "Nederland"
       }
     }
   }

@@ -12,7 +12,6 @@ from homeassistant.components.binary_sensor import (
 )
 from homeassistant.components.sensor import SensorEntityDescription
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import CONF_COUNTRY
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity import EntityDescription
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
@@ -73,25 +72,24 @@ async def async_setup_entry(
         description.key: description for description in SENSOR_DESCRIPTIONS
     }
 
-    if entry.data[CONF_COUNTRY] == "be":
-        if coordinator.data is not None:
-            for _, item in coordinator.data.items():
-                if description := SUPPORTED_KEYS.get(item.type):
-                    _LOGGER.debug(f"[sensor|async_setup_entry|adding] {item.name}")
-                    entities.append(
-                        YoinBinarySensor(
-                            coordinator=coordinator,
-                            description=description,
-                            item=item,
-                        )
+    if coordinator.data is not None:
+        for _, item in coordinator.data.items():
+            if description := SUPPORTED_KEYS.get(item.type):
+                _LOGGER.debug(f"[sensor|async_setup_entry|adding] {item.name}")
+                entities.append(
+                    YoinBinarySensor(
+                        coordinator=coordinator,
+                        description=description,
+                        item=item,
                     )
-                else:
-                    _LOGGER.debug(
-                        f"[sensor|async_setup_entry|no support type found] {item.name}, type: {item.type}, keys: {SUPPORTED_KEYS.get(item.type)}",
-                        True,
-                    )
+                )
+            else:
+                _LOGGER.debug(
+                    f"[sensor|async_setup_entry|no support type found] {item.name}, type: {item.type}, keys: {SUPPORTED_KEYS.get(item.type)}",
+                    True,
+                )
 
-            async_add_entities(entities)
+        async_add_entities(entities)
 
 
 class YoinBinarySensor(YoinEntity, BinarySensorEntity):
