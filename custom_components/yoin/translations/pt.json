@@ -1,0 +1,91 @@
+{
+  "config": {
+    "step": {
+      "connection_init": {
+        "title": "Nova conta Yoin",
+        "description": "Configure sua conta de usuário Yoin",
+        "data": {
+          "username": "Nome de usuário",
+          "password": "Senha",
+          "scan_interval": "Intervalo de atualização (horas)",
+          "country": "País"
+        }
+      }
+    },
+    "abort": {
+      "already_configured": "A conta já está configurada"
+    },
+    "error": {
+      "cannot_connect": "Falha ao conectar",
+      "invalid_auth": "Autenticação inválida",
+      "unknown": "Erro inesperado",
+      "service_error": "Serviço indisponível"
+    }
+  },
+  "options": {
+    "step": {
+      "country": {
+        "title": "Alterar seu país",
+        "description": "Isso normalmente não deve ser usado",
+        "data": {
+          "country": "País"
+        }
+      },
+      "username_password": {
+        "title": "Atualizar seu nome de usuário e/ou senha",
+        "description": "Para fazer quando você alterou seu nome de usuário e/ou senha no 'Yoin'",
+        "data": {
+          "password": "Senha"
+        }
+      },
+      "scan_interval": {
+        "title": "Intervalo de atualização",
+        "description": "Alterar o intervalo de atualização para atualizar os sensores",
+        "data": {
+          "scan_interval": "Intervalo de atualização (horas)"
+        }
+      },
+      "init": {
+        "title": "Alterar opções",
+        "menu_options": {
+          "country": "País",
+          "scan_interval": "Intervalo de atualização",
+          "username_password": "Nome de usuário e senha"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Falha ao conectar",
+      "invalid_auth": "Autenticação inválida",
+      "unknown": "Erro inesperado",
+      "service_error": "Serviço indisponível"
+    },
+    "abort": {
+      "already_configured": "A conta já está configurada"
+    }
+  },
+  "entity": {
+    "sensor": {
+      "customer": {
+        "name": "Cliente"
+      },
+      "data": {
+        "name": "Dados"
+      },
+      "voice": {
+        "name": "Voz/SMS"
+      },
+      "sim_subscription": {
+        "name": "Assinatura"
+      }
+    }
+  },
+  "selector": {
+    "country": {
+      "options": {
+        "be": "Bélgica",
+        "nl": "Países Baixos"
+      }
+    }
+  }
+}
