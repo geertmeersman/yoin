@@ -101,7 +101,7 @@ This integration will set up the following platforms.
 
 | Platform  | Description                                           |
 | --------- | ----------------------------------------------------- |
-| `yoin` | Home Assistant component for Yoin BE & NL services |
+| `yoin` | Home Assistant component for Yoin services |
 
 ## Contributions are welcome
 
