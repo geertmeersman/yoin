@@ -20,14 +20,14 @@ from homeassistant.helpers.storage import STORAGE_DIR, Store
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
 from requests.exceptions import ConnectionError
 
-from .client import YoufoneClient
+from .client import YoinClient
 from .const import COORDINATOR_MIN_UPDATE_INTERVAL, DOMAIN, PLATFORMS
 from .exceptions import (
     BadCredentialsException,
-    YoufoneException,
-    YoufoneServiceException,
+    YoinException,
+    YoinServiceException,
 )
-from .models import YoufoneItem
+from .models import YoinItem
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -41,13 +41,13 @@ def get_coordinator_update_interval(minimum=COORDINATOR_MIN_UPDATE_INTERVAL):
 
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
-    """Set up Youfone from a config entry."""
+    """Set up Yoin from a config entry."""
     hass.data.setdefault(DOMAIN, {})[entry.entry_id] = {}
 
     for platform in PLATFORMS:
         hass.data[DOMAIN][entry.entry_id].setdefault(platform, set())
 
-    client = YoufoneClient(
+    client = YoinClient(
         username=entry.data[CONF_USERNAME],
         password=entry.data[CONF_PASSWORD],
         country=entry.data[CONF_COUNTRY],
@@ -61,7 +61,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     dev_reg = dr.async_get(hass)
     hass.data[DOMAIN][entry.entry_id][
         "coordinator"
-    ] = coordinator = YoufoneDataUpdateCoordinator(
+    ] = coordinator = YoinDataUpdateCoordinator(
         hass,
         config_entry_id=entry.entry_id,
         dev_reg=dev_reg,
@@ -86,10 +86,10 @@ async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     return unload_ok
 
 
-class YoufoneDataUpdateCoordinator(DataUpdateCoordinator):
-    """Data update coordinator for Youfone."""
+class YoinDataUpdateCoordinator(DataUpdateCoordinator):
+    """Data update coordinator for Yoin."""
 
-    data: list[YoufoneItem]
+    data: list[YoinItem]
     config_entry: ConfigEntry
 
     def __init__(
@@ -97,7 +97,7 @@ class YoufoneDataUpdateCoordinator(DataUpdateCoordinator):
         hass: HomeAssistant,
         config_entry_id: str,
         dev_reg: dr.DeviceRegistry,
-        client: YoufoneClient,
+        client: YoinClient,
         store: Store,
         scan_interval: int,
         entry: ConfigEntry,
@@ -122,11 +122,11 @@ class YoufoneDataUpdateCoordinator(DataUpdateCoordinator):
         self.data = await self.store.async_load() or {}
         if len(self.data):
             if self.entry.data[CONF_COUNTRY] == "be":
-                # Map data item as YoufoneItem if it is restored from the data store
+                # Map data item as YoinItem if it is restored from the data store
                 new_data = {}
                 for key, value in self.data.items():
-                    if not isinstance(value, YoufoneItem):
-                        new_data[key] = YoufoneItem(**value)
+                    if not isinstance(value, YoinItem):
+                        new_data[key] = YoinItem(**value)
                     else:
                         new_data[key] = value
                 self.data = new_data
@@ -134,7 +134,7 @@ class YoufoneDataUpdateCoordinator(DataUpdateCoordinator):
             await super().async_config_entry_first_refresh()
 
     async def get_data(self) -> dict | None:
-        """Get the data from the Youfone client."""
+        """Get the data from the Yoin client."""
         if self.entry.data[CONF_COUNTRY] == "be":
             self.data = await self.hass.async_add_executor_job(self.client.fetch_data)
         else:
@@ -151,23 +151,23 @@ class YoufoneDataUpdateCoordinator(DataUpdateCoordinator):
                 await self.get_data()
             except ConnectionError as exception:
                 _LOGGER.warning(f"ConnectionError {exception}")
-            except YoufoneServiceException as exception:
-                _LOGGER.warning(f"YoufoneServiceException {exception}")
+            except YoinServiceException as exception:
+                _LOGGER.warning(f"YoinServiceException {exception}")
             except BadCredentialsException as exception:
                 _LOGGER.warning(f"Login failed: {exception}")
-            except YoufoneException as exception:
-                _LOGGER.warning(f"YoufoneException {exception}")
+            except YoinException as exception:
+                _LOGGER.warning(f"YoinException {exception}")
             except Exception as exception:
                 _LOGGER.warning(f"Exception {exception}")
 
         if len(self.data):
             if self.entry.data[CONF_COUNTRY] != "be":
                 return self.data
-            # Map data item as YoufoneItem if it is restored from the data store
+            # Map data item as YoinItem if it is restored from the data store
             new_data = {}
             for key, value in self.data.items():
-                if not isinstance(value, YoufoneItem):
-                    new_data[key] = YoufoneItem(**value)
+                if not isinstance(value, YoinItem):
+                    new_data[key] = YoinItem(**value)
                 else:
                     new_data[key] = value
             self.data = new_data
@@ -190,7 +190,7 @@ class YoufoneDataUpdateCoordinator(DataUpdateCoordinator):
                         {(DOMAIN, device_key)}
                     ):
                         _LOGGER.debug(
-                            f"[init|YoufoneDataUpdateCoordinator|_async_update_data|async_remove_device] {device_key}",
+                            f"[init|YoinDataUpdateCoordinator|_async_update_data|async_remove_device] {device_key}",
                             True,
                         )
                         self._device_registry.async_remove_device(device.id)
