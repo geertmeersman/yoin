@@ -1,5 +1,9 @@
 # Changelog
 
+## [v0.1.1](https://github.com/geertmeersman/yoin/tree/v0.1.1) (2024-04-17)
+
+[Full Changelog](https://github.com/geertmeersman/yoin/compare/v0.1.0...v0.1.1)
+
 ## [v0.1.0](https://github.com/geertmeersman/yoin/tree/v0.1.0) (2024-04-17)
 
 [Full Changelog](https://github.com/geertmeersman/yoin/compare/fb4bc7c1c98f8d77b02889b85551209f09566974...v0.1.0)
