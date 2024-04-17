@@ -21,8 +21,6 @@ BASE_HEADERS = {
 }
 
 DATETIME_FORMAT = "%Y-%m-%dT%H:%M:%S%z"
-DEFAULT_COUNTRY = "be"
-COUNTRY_CHOICES = ["be", "nl"]
 
 COORDINATOR_MIN_UPDATE_INTERVAL = 2  # hours
 WEBSITE = "https://my.yoin.be/"

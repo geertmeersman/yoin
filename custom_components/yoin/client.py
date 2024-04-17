@@ -10,7 +10,7 @@ import time
 
 import httpx
 
-from .const import BASE_HEADERS, DEFAULT_COUNTRY, DEFAULT_YOIN_ENVIRONMENT
+from .const import BASE_HEADERS, DEFAULT_YOIN_ENVIRONMENT
 from .exceptions import BadCredentialsException, YoinServiceException
 from .models import YoinEnvironment, YoinItem
 from .utils import format_entity_name, mask_fields, str_to_float
@@ -40,13 +40,6 @@ class YoinClient:
         self.securitykey = None
         self.user_details = None
         self.request_error = {}
-        if country != DEFAULT_COUNTRY:
-            self.environment.api_endpoint = self.environment.api_endpoint.replace(
-                "yoin.be", f"yoin.{country}"
-            )
-            self.environment.base_url = self.environment.base_url.replace(
-                "yoin.be", f"yoin.{country}"
-            )
 
     def request(
         self,
@@ -60,8 +53,8 @@ class YoinClient:
         headers = self._headers
         headers.update(
             {
-                "Referer": f"https://my.yoin.{self.country}/login",
-                "Origin": f"https://my.yoin.{self.country}",
+                "Referer": "https://my.yoin.be/login",
+                "Origin": "https://my.yoin.be",
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36",
             }
         )

@@ -7,7 +7,6 @@ from dataclasses import dataclass
 import logging
 
 from homeassistant.components.sensor import (
-    RestoreSensor,
     SensorDeviceClass,
     SensorEntity,
     SensorEntityDescription,
@@ -18,7 +17,6 @@ from homeassistant.const import CURRENCY_EURO, PERCENTAGE
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity import EntityDescription
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
-from homeassistant.helpers.typing import StateType
 
 from . import YoinDataUpdateCoordinator
 from .const import DOMAIN
