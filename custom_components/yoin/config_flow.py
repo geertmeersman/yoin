@@ -29,8 +29,6 @@ import voluptuous as vol
 from .client import YoinClient
 from .const import (
     COORDINATOR_MIN_UPDATE_INTERVAL,
-    COUNTRY_CHOICES,
-    DEFAULT_COUNTRY,
     DOMAIN,
     NAME,
 )
