@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.1.3](https://github.com/geertmeersman/yoin/tree/v0.1.3) (2024-04-17)
+
+[Full Changelog](https://github.com/geertmeersman/yoin/compare/v0.1.2...v0.1.3)
+
+**Merged pull requests:**
+
+- fix: country specifics removed [\#1](https://github.com/geertmeersman/yoin/pull/1) ([geertmeersman](https://github.com/geertmeersman))
+
 ## [v0.1.2](https://github.com/geertmeersman/yoin/tree/v0.1.2) (2024-04-17)
 
 [Full Changelog](https://github.com/geertmeersman/yoin/compare/v0.1.1...v0.1.2)
