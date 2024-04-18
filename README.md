@@ -1,7 +1,7 @@
 <img src="https://github.com/geertmeersman/yoin/raw/main/images/brand/logo.png"
      alt="Yoin"
      align="right"
-     style="margin-right: 10px;max-height: 60px;" />
+     style="width: 120px;margin-right: 10px;" />
 
 # Yoin for Home Assistant
 
