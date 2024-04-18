@@ -1,11 +1,11 @@
 <img src="https://github.com/geertmeersman/yoin/raw/main/images/brand/logo.png"
      alt="Yoin"
      align="right"
-     style="width: 200px;margin-right: 10px;" />
+     style="margin-right: 10px;max-height: 60px;" />
 
 # Yoin for Home Assistant
 
-A Home Assistant integration allowing to monitor your Yoin usage
+A Home Assistant integration allowing to monitor your [Yoin](https://my.yoin.be) usage
 
 ```text
 In order to avoid IP blacklisting / DDOS identification, the update interval is set to a minimum of 2 hours (you can increase it in the configuration).
@@ -17,8 +17,6 @@ When adding a hub of the integration, it might take 1 minute to complete the add
 
 - 📱 Mobile data sensors
 - 📞 Voice & sms sensors
-- 💲 Youcoins balance
-- 📈 Invoice sensors
 - 👱 User account information
 
 ---
@@ -55,7 +53,7 @@ When adding a hub of the integration, it might take 1 minute to complete the add
 ## Table of Contents
 
 - [Yoin for Home Assistant](#yoin-for-home-assistant)
-    - [Features](#features)
+  - [Features](#features)
   - [Table of Contents](#table-of-contents)
   - [Installation](#installation)
     - [Using HACS (recommended)](#using-hacs-recommended)
@@ -99,9 +97,9 @@ When adding a hub of the integration, it might take 1 minute to complete the add
 
 This integration will set up the following platforms.
 
-| Platform  | Description                                           |
-| --------- | ----------------------------------------------------- |
-| `yoin` | Home Assistant component for Yoin services |
+| Platform | Description                                |
+| -------- | ------------------------------------------ |
+| `yoin`   | Home Assistant component for Yoin services |
 
 ## Contributions are welcome
 
