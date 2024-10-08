@@ -1,5 +1,33 @@
 # Changelog
 
+## [v0.1.4](https://github.com/geertmeersman/yoin/tree/v0.1.4) (2024-10-08)
+
+[Full Changelog](https://github.com/geertmeersman/yoin/compare/v0.1.3...v0.1.4)
+
+**Merged pull requests:**
+
+- fix: async for blocking file system operations [\#29](https://github.com/geertmeersman/yoin/pull/29) ([geertmeersman](https://github.com/geertmeersman))
+- build\(deps\): bump ruff from 0.6.8 to 0.6.9 [\#28](https://github.com/geertmeersman/yoin/pull/28) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.6.7 to 0.6.8 [\#27](https://github.com/geertmeersman/yoin/pull/27) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.6.5 to 0.6.7 [\#26](https://github.com/geertmeersman/yoin/pull/26) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.6.4 to 0.6.5 [\#25](https://github.com/geertmeersman/yoin/pull/25) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.6.2 to 0.6.4 [\#24](https://github.com/geertmeersman/yoin/pull/24) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.5.1 to 0.6.2 [\#22](https://github.com/geertmeersman/yoin/pull/22) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): update pip requirement from \<24.2,\>=8.0.3 to \>=8.0.3,\<24.3 [\#18](https://github.com/geertmeersman/yoin/pull/18) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.5.0 to 0.5.1 [\#14](https://github.com/geertmeersman/yoin/pull/14) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.4.10 to 0.5.0 [\#13](https://github.com/geertmeersman/yoin/pull/13) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.4.9 to 0.4.10 [\#12](https://github.com/geertmeersman/yoin/pull/12) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): update pip requirement from \<24.1,\>=8.0.3 to \>=8.0.3,\<24.2 [\#11](https://github.com/geertmeersman/yoin/pull/11) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.4.8 to 0.4.9 [\#10](https://github.com/geertmeersman/yoin/pull/10) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.4.7 to 0.4.8 [\#9](https://github.com/geertmeersman/yoin/pull/9) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.4.5 to 0.4.7 [\#8](https://github.com/geertmeersman/yoin/pull/8) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.4.4 to 0.4.5 [\#7](https://github.com/geertmeersman/yoin/pull/7) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.4.3 to 0.4.4 [\#6](https://github.com/geertmeersman/yoin/pull/6) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.4.2 to 0.4.3 [\#5](https://github.com/geertmeersman/yoin/pull/5) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.4.1 to 0.4.2 [\#4](https://github.com/geertmeersman/yoin/pull/4) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.3.7 to 0.4.1 [\#3](https://github.com/geertmeersman/yoin/pull/3) ([dependabot[bot]](https://github.com/apps/dependabot))
+- docs: README update [\#2](https://github.com/geertmeersman/yoin/pull/2) ([geertmeersman](https://github.com/geertmeersman))
+
 ## [v0.1.3](https://github.com/geertmeersman/yoin/tree/v0.1.3) (2024-04-17)
 
 [Full Changelog](https://github.com/geertmeersman/yoin/compare/v0.1.2...v0.1.3)
