@@ -2,17 +2,14 @@
 
 from __future__ import annotations
 
+import asyncio
 from datetime import timedelta
 import logging
 from pathlib import Path
 import random
 
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import (
-    CONF_PASSWORD,
-    CONF_SCAN_INTERVAL,
-    CONF_USERNAME,
-)
+from homeassistant.const import CONF_PASSWORD, CONF_SCAN_INTERVAL, CONF_USERNAME
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers import device_registry as dr
 from homeassistant.helpers.storage import STORAGE_DIR, Store
@@ -21,11 +18,7 @@ from requests.exceptions import ConnectionError
 
 from .client import YoinClient
 from .const import COORDINATOR_MIN_UPDATE_INTERVAL, DOMAIN, PLATFORMS
-from .exceptions import (
-    BadCredentialsException,
-    YoinException,
-    YoinServiceException,
-)
+from .exceptions import BadCredentialsException, YoinException, YoinServiceException
 from .models import YoinItem
 
 _LOGGER = logging.getLogger(__name__)
@@ -47,8 +40,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         hass.data[DOMAIN][entry.entry_id].setdefault(platform, set())
 
     client = YoinClient(
-        username=entry.data[CONF_USERNAME],
-        password=entry.data[CONF_PASSWORD]
+        username=entry.data[CONF_USERNAME], password=entry.data[CONF_PASSWORD]
     )
 
     storage_dir = Path(f"{hass.config.path(STORAGE_DIR)}/{DOMAIN}")
@@ -78,8 +70,23 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 
 async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Unload a config entry."""
+
+    # Unload the platforms first
     if unload_ok := await hass.config_entries.async_unload_platforms(entry, PLATFORMS):
         hass.data[DOMAIN].pop(entry.entry_id)
+
+        # Define blocking file operations
+        def remove_storage_files():
+            storage = Path(f"{hass.config.path(STORAGE_DIR)}/{DOMAIN}/{entry.entry_id}")
+            storage.unlink(True)  # Unlink (delete) the storage file
+
+            storage_dir = Path(f"{hass.config.path(STORAGE_DIR)}/{DOMAIN}")
+            # If the directory exists and is empty, remove it
+            if storage_dir.is_dir() and not any(storage_dir.iterdir()):
+                storage_dir.rmdir()
+
+        # Offload the file system operations to a thread
+        await asyncio.to_thread(remove_storage_files)
 
     return unload_ok
 
