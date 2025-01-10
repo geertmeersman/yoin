@@ -92,7 +92,7 @@ When adding a hub of the integration, it might take 1 minute to complete the add
 
 ### Manual
 
-1. Copy the `custom_components/yoin` directory of this repository as `config/custom_components/yoin` in your Home Assistant instalation.
+1. Copy the `custom_components/yoin` directory of this repository as `config/custom_components/yoin` in your Home Assistant installation.
 2. Restart Home Assistant
 3. Add the 'Yoin' integration via HA Settings > 'Devices and Services' > 'Integrations'
 4. Provide your Yoin username and password

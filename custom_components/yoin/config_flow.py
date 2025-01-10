@@ -5,11 +5,7 @@ import logging
 from typing import Any
 
 from homeassistant.config_entries import ConfigEntry, ConfigFlow, OptionsFlow
-from homeassistant.const import (
-    CONF_PASSWORD,
-    CONF_SCAN_INTERVAL,
-    CONF_USERNAME,
-)
+from homeassistant.const import CONF_PASSWORD, CONF_SCAN_INTERVAL, CONF_USERNAME
 from homeassistant.core import callback
 from homeassistant.data_entry_flow import FlowHandler, FlowResult
 from homeassistant.helpers.selector import (
@@ -24,11 +20,7 @@ from homeassistant.helpers.typing import UNDEFINED
 import voluptuous as vol
 
 from .client import YoinClient
-from .const import (
-    COORDINATOR_MIN_UPDATE_INTERVAL,
-    DOMAIN,
-    NAME,
-)
+from .const import COORDINATOR_MIN_UPDATE_INTERVAL, DOMAIN, NAME
 from .exceptions import BadCredentialsException, YoinServiceException
 from .models import YoinConfigEntryData
 
@@ -39,6 +31,7 @@ DEFAULT_ENTRY_DATA = YoinConfigEntryData(
     password=None,
     scan_interval=COORDINATOR_MIN_UPDATE_INTERVAL,
 )
+
 
 class YoinCommonFlow(ABC, FlowHandler):
     """Base class for Yoin flows."""
