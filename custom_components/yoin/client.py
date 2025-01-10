@@ -1,4 +1,5 @@
 """Yoin API Client."""
+
 from __future__ import annotations
 
 from calendar import monthrange
@@ -370,9 +371,9 @@ class YoinClient:
                     )
             if period_percentage_completed is not None:
                 for _, item in data.items():
-                    item.extra_attributes[
-                        "period_percentage_completed"
-                    ] = period_percentage_completed
+                    item.extra_attributes["period_percentage_completed"] = (
+                        period_percentage_completed
+                    )
         return data
 
     def personal_info(self, customer_id):

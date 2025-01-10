@@ -1,4 +1,5 @@
 """Base Yoin entity."""
+
 from __future__ import annotations
 
 from datetime import datetime
@@ -83,4 +84,3 @@ class YoinEntity(CoordinatorEntity[YoinDataUpdateCoordinator]):
     async def async_update(self) -> None:
         """Update the entity.  Only used by the generic entity update service."""
         return
-

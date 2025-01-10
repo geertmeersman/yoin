@@ -1,7 +1,9 @@
 {
+  "country": [
+    "BE"
+  ],
+  "filename": "yoin.zip",
   "name": "Yoin",
   "render_readme": true,
-  "country": ["BE"],
-  "zip_release": true,
-  "filename": "yoin.zip"
+  "zip_release": true
 }

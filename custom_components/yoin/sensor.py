@@ -117,9 +117,7 @@ async def async_setup_entry(
                 if item.native_unit_of_measurement is not None:
                     native_unit_of_measurement = item.native_unit_of_measurement
                 else:
-                    native_unit_of_measurement = (
-                        description.native_unit_of_measurement
-                    )
+                    native_unit_of_measurement = description.native_unit_of_measurement
                 sensor_description = YoinSensorDescription(
                     key=str(item.key),
                     name=item.name,
