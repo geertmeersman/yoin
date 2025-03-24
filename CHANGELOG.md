@@ -1,5 +1,41 @@
 # Changelog
 
+## [v0.2.0](https://github.com/geertmeersman/yoin/tree/v0.2.0) (2025-03-24)
+
+[Full Changelog](https://github.com/geertmeersman/yoin/compare/v0.1.4...v0.2.0)
+
+**Fixed bugs:**
+
+- Custom integration 'yoin' sets option flow config\_entry explicitly, which is deprecated [\#62](https://github.com/geertmeersman/yoin/issues/62)
+
+**Merged pull requests:**
+
+- fix: New options flow properties [\#64](https://github.com/geertmeersman/yoin/pull/64) ([geertmeersman](https://github.com/geertmeersman))
+- build\(deps\): bump ruff from 0.9.9 to 0.11.2 [\#63](https://github.com/geertmeersman/yoin/pull/63) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.9.7 to 0.9.9 [\#59](https://github.com/geertmeersman/yoin/pull/59) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.8.6 to 0.9.7 [\#58](https://github.com/geertmeersman/yoin/pull/58) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): update pip requirement from \<24.4,\>=8.0.3 to \>=8.0.3,\<25.1 [\#54](https://github.com/geertmeersman/yoin/pull/54) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore: github sync dev-current workflow [\#50](https://github.com/geertmeersman/yoin/pull/50) ([geertmeersman](https://github.com/geertmeersman))
+- chore: spellcheck [\#49](https://github.com/geertmeersman/yoin/pull/49) ([geertmeersman](https://github.com/geertmeersman))
+- build\(deps\): bump ruff from 0.8.4 to 0.8.6 [\#48](https://github.com/geertmeersman/yoin/pull/48) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore: pre-commit [\#47](https://github.com/geertmeersman/yoin/pull/47) ([geertmeersman](https://github.com/geertmeersman))
+- fix: pretty-format-json [\#46](https://github.com/geertmeersman/yoin/pull/46) ([geertmeersman](https://github.com/geertmeersman))
+- build\(deps\): bump ruff from 0.8.3 to 0.8.4 [\#45](https://github.com/geertmeersman/yoin/pull/45) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.8.2 to 0.8.3 [\#44](https://github.com/geertmeersman/yoin/pull/44) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.8.0 to 0.8.2 [\#43](https://github.com/geertmeersman/yoin/pull/43) ([dependabot[bot]](https://github.com/apps/dependabot))
+- fix: github workflow delete pre-releases on release [\#41](https://github.com/geertmeersman/yoin/pull/41) ([geertmeersman](https://github.com/geertmeersman))
+- fix: beta release zip file [\#40](https://github.com/geertmeersman/yoin/pull/40) ([geertmeersman](https://github.com/geertmeersman))
+- build\(deps\): bump ruff from 0.7.4 to 0.8.0 [\#39](https://github.com/geertmeersman/yoin/pull/39) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.7.3 to 0.7.4 [\#38](https://github.com/geertmeersman/yoin/pull/38) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.7.2 to 0.7.3 [\#37](https://github.com/geertmeersman/yoin/pull/37) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore: zip\_release for hacs [\#36](https://github.com/geertmeersman/yoin/pull/36) ([geertmeersman](https://github.com/geertmeersman))
+- docs: release template [\#35](https://github.com/geertmeersman/yoin/pull/35) ([geertmeersman](https://github.com/geertmeersman))
+- build\(deps\): bump ruff from 0.7.1 to 0.7.2 [\#34](https://github.com/geertmeersman/yoin/pull/34) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump colorlog from 6.8.2 to 6.9.0 [\#33](https://github.com/geertmeersman/yoin/pull/33) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.7.0 to 0.7.1 [\#32](https://github.com/geertmeersman/yoin/pull/32) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): update pip requirement from \<24.3,\>=8.0.3 to \>=8.0.3,\<24.4 [\#31](https://github.com/geertmeersman/yoin/pull/31) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.6.9 to 0.7.0 [\#30](https://github.com/geertmeersman/yoin/pull/30) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v0.1.4](https://github.com/geertmeersman/yoin/tree/v0.1.4) (2024-10-08)
 
 [Full Changelog](https://github.com/geertmeersman/yoin/compare/v0.1.3...v0.1.4)
