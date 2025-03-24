@@ -200,8 +200,6 @@ class YoinCommonFlow(ABC, FlowHandler):
 class YoinOptionsFlow(YoinCommonFlow, OptionsFlow):
     """Handle Yoin options."""
 
-    general_settings: dict
-
     def __init__(self, config_entry: ConfigEntry) -> None:
         """Initialize Yoin options flow."""
         super().__init__(initial_data=config_entry.data)  # type: ignore[arg-type]
