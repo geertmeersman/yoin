@@ -51,7 +51,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     hass.data[DOMAIN][entry.entry_id]["coordinator"] = coordinator = (
         YoinDataUpdateCoordinator(
             hass,
-            config_entry_id=entry.entry_id,
+            config_entry=entry,
             dev_reg=dev_reg,
             client=client,
             store=store,
@@ -99,7 +99,7 @@ class YoinDataUpdateCoordinator(DataUpdateCoordinator):
     def __init__(
         self,
         hass: HomeAssistant,
-        config_entry_id: str,
+        config_entry: ConfigEntry,
         dev_reg: dr.DeviceRegistry,
         client: YoinClient,
         store: Store,
@@ -112,9 +112,10 @@ class YoinDataUpdateCoordinator(DataUpdateCoordinator):
             _LOGGER,
             name=DOMAIN,
             update_interval=get_coordinator_update_interval(scan_interval),
+            config_entry=config_entry,
         )
         self._debug = _LOGGER.isEnabledFor(logging.DEBUG)
-        self._config_entry_id = config_entry_id
+        self._config_entry_id = config_entry.entry_id
         self._device_registry = dev_reg
         self.store = store
         self.client = client
