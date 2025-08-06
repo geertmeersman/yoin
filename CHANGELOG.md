@@ -1,5 +1,28 @@
 # Changelog
 
+## [v0.3.0](https://github.com/geertmeersman/yoin/tree/v0.3.0) (2025-08-06)
+
+[Full Changelog](https://github.com/geertmeersman/yoin/compare/v0.2.0...v0.3.0)
+
+**Merged pull requests:**
+
+- chore: Pass config\_entry explicitly to DataUpdateCoordinator to avoid C… [\#88](https://github.com/geertmeersman/yoin/pull/88) ([geertmeersman](https://github.com/geertmeersman))
+- chore\(deps\): bump ruff from 0.12.5 to 0.12.7 [\#87](https://github.com/geertmeersman/yoin/pull/87) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): update pip requirement from \<25.2,\>=8.0.3 to \>=8.0.3,\<25.3 [\#86](https://github.com/geertmeersman/yoin/pull/86) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump hugo19941994/delete-draft-releases from 1.0.1 to 2.0.0 [\#85](https://github.com/geertmeersman/yoin/pull/85) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump ruff from 0.12.4 to 0.12.5 [\#84](https://github.com/geertmeersman/yoin/pull/84) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump ruff from 0.12.3 to 0.12.4 [\#83](https://github.com/geertmeersman/yoin/pull/83) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump ruff from 0.12.2 to 0.12.3 [\#82](https://github.com/geertmeersman/yoin/pull/82) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump ruff from 0.12.1 to 0.12.2 [\#81](https://github.com/geertmeersman/yoin/pull/81) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump ruff from 0.12.0 to 0.12.1 [\#80](https://github.com/geertmeersman/yoin/pull/80) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump ruff from 0.11.13 to 0.12.0 [\#79](https://github.com/geertmeersman/yoin/pull/79) ([dependabot[bot]](https://github.com/apps/dependabot))
+- fix: reduce to 1 commit when releasing [\#78](https://github.com/geertmeersman/yoin/pull/78) ([geertmeersman](https://github.com/geertmeersman))
+- fix: sync dev-current workflow trigger [\#77](https://github.com/geertmeersman/yoin/pull/77) ([geertmeersman](https://github.com/geertmeersman))
+- chore\(deps\): bump ruff from 0.11.12 to 0.11.13 [\#76](https://github.com/geertmeersman/yoin/pull/76) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump ruff from 0.11.2 to 0.11.12 [\#75](https://github.com/geertmeersman/yoin/pull/75) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): update pip requirement from \<25.1,\>=8.0.3 to \>=8.0.3,\<25.2 [\#69](https://github.com/geertmeersman/yoin/pull/69) ([dependabot[bot]](https://github.com/apps/dependabot))
+- fix: remove general\_settings [\#65](https://github.com/geertmeersman/yoin/pull/65) ([geertmeersman](https://github.com/geertmeersman))
+
 ## [v0.2.0](https://github.com/geertmeersman/yoin/tree/v0.2.0) (2025-03-24)
 
 [Full Changelog](https://github.com/geertmeersman/yoin/compare/v0.1.4...v0.2.0)
