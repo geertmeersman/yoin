@@ -30,18 +30,10 @@ jobs:
           echo "Current version: ${{ steps.semver.outputs.current }}"
           echo "Next version: ${{ steps.semver.outputs.next }}"
 
-      - name: 📝 Update draft release with calculated version
+      - name: 🚀 Publish release
         uses: release-drafter/release-drafter@v6
-        id: draft_release
         with:
           name: Release ${{ steps.semver.outputs.next }}
           tag: ${{ steps.semver.outputs.next }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: 🚀 Publish release
-        uses: release-drafter/release-drafter@v6
-        with:
-          publish: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
