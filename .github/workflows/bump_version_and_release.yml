@@ -51,7 +51,7 @@ jobs:
           echo $tag_name > VERSION
 
       - name: "✏️　Generate release changelog"
-        uses: heinrichreimer/github-changelog-generator-action@v2.4
+        uses: janheinrichmerker/action-github-changelog-generator@v2.4
         with:
           token: ${{ secrets.GH_PAT }}
           issues: true
@@ -64,8 +64,8 @@ jobs:
       - name: ✅　Commit release notes and bump version
         uses: EndBug/add-and-commit@v9
         with:
-          add: "VERSION custom_components/${{ github.event.repository.name }}/manifest.json"
-          message: "chore(release): bump version to ${{ steps.semver.outputs.next }}"
+          add: "VERSION CHANGELOG.md custom_components/${{ github.event.repository.name }}/manifest.json"
+          message: "chore(release): changelog & bump version to ${{ steps.semver.outputs.next }}"
           push: true
 
       - name: 📝　Publish release
