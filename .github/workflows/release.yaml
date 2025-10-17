@@ -28,6 +28,23 @@ jobs:
           cat custom_components/$GITHUB_REPO/manifest.json
           echo ${{ github.event.release.tag_name }} > VERSION
 
+      - name: "✏️　Generate release changelog"
+        uses: heinrichreimer/github-changelog-generator-action@v2.4
+        with:
+          token: ${{ secrets.GH_PAT }}
+          issues: true
+          issuesWoLabels: true
+          pullRequests: true
+          prWoLabels: true
+          unreleased: false
+          addSections: '{"documentation":{"prefix":"**Documentation:**","labels":["documentation"]}}'
+
+      - name: ✅　Commit release notes and bump version
+        uses: EndBug/add-and-commit@v9
+        with:
+          message: "docs: Commit release notes and bump version ${{ steps.release_drafter.outputs.tag_name }}"
+
+
       - name: 📦 Created zipped release package
         shell: bash
         run: |
