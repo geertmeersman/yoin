@@ -84,6 +84,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
 
+      - name: 📝 Update release with zip file
+        run: |
+          gh release upload ${{ steps.semver.outputs.next }} "${{ github.event.repository.name }}.zip"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: 🚮 Remove pre-releases
         run: |
           gh release list --json tagName,isPrerelease -q '.[] | select(.isPrerelease == true) | .tagName' | while read -r tag_name; do
