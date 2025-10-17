@@ -86,7 +86,7 @@ jobs:
 
       - name: 📝 Update release with zip file
         run: |
-          gh release upload ${{ steps.semver.outputs.next }} "${{ github.event.repository.name }}.zip"
+          gh release upload ${{ steps.semver.outputs.next }} ${{ github.workspace }}/custom_components/${{ github.event.repository.name }}/${{ github.event.repository.name }}.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
