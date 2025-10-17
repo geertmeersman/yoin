@@ -13,6 +13,10 @@ jobs:
     name: ✏️ Draft release
     runs-on: ubuntu-latest
     steps:
+      - name: 🗑　Delete Release drafts
+        uses: hugo19941994/delete-draft-releases@v2.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: 🚀 Run Release Drafter
         uses: release-drafter/release-drafter@v6.1.0
         env:
