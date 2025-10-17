@@ -23,15 +23,21 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: 📝　Draft release
-        uses: release-drafter/release-drafter@v6
-        id: release_drafter
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: 🔢 Calculate next semantic version
+        id: semver
+        uses: ietf-tools/semver-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
+
+      - name: 🧾 Display version info
+        run: |
+          echo "Current version: ${{ steps.semver.outputs.current }}"
+          echo "Next version: ${{ steps.semver.outputs.next }}"
 
       - name: 🔄　Update version in 'VERSION' and 'manifest.json' and push changes
         env:
-          tag_name: ${{ steps.release_drafter.outputs.tag_name }}
+          tag_name: ${{ steps.semver.outputs.next }}
           GITHUB_REPO: ${{ github.event.repository.name }}
         run: |
           echo "** Manifest before replace **"
@@ -40,14 +46,6 @@ jobs:
           echo "** Manifest after replace **"
           cat custom_components/$GITHUB_REPO/manifest.json
           echo $tag_name > VERSION
-
-      - name: 📝　Publish release
-        uses: release-drafter/release-drafter@v6
-        id: release_published
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          publish: true
 
       - name: "✏️　Generate release changelog"
         uses: heinrichreimer/github-changelog-generator-action@v2.4
@@ -63,7 +61,17 @@ jobs:
       - name: ✅　Commit release notes and bump version
         uses: EndBug/add-and-commit@v9
         with:
-          message: Commit release notes and bump version ${{ steps.release_drafter.outputs.tag_name }}
+          message: "docs: Release notes and bump version ${{ steps.semver.outputs.next }}"
+
+      - name: 📝　Publish release
+        uses: release-drafter/release-drafter@v6
+        id: release_published
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          name: Release ${{ steps.semver.outputs.next }}
+          tag: ${{ steps.semver.outputs.next }}
+          publish: true
 
       - name: 📦 Create zip file
         run: |
