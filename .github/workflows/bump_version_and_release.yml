@@ -50,6 +50,16 @@ jobs:
           cat custom_components/$GITHUB_REPO/manifest.json
           echo $tag_name > VERSION
 
+      - name: 📝　Publish release
+        uses: release-drafter/release-drafter@v6
+        id: release_published
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          name: Release ${{ steps.semver.outputs.next }}
+          tag: ${{ steps.semver.outputs.next }}
+          publish: true
+
       - name: "✏️　Generate release changelog"
         uses: janheinrichmerker/action-github-changelog-generator@v2.4
         with:
@@ -68,16 +78,6 @@ jobs:
           add: "VERSION CHANGELOG.md custom_components/${{ github.event.repository.name }}/manifest.json"
           message: "chore(release): changelog & bump version to ${{ steps.semver.outputs.next }}"
           push: true
-
-      - name: 📝　Publish release
-        uses: release-drafter/release-drafter@v6
-        id: release_published
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          name: Release ${{ steps.semver.outputs.next }}
-          tag: ${{ steps.semver.outputs.next }}
-          publish: true
 
       - name: 📦 Create zip file
         run: |

@@ -1,4 +1,4 @@
-name: Release - Bump and Release v2 🚀
+name: Release - Bump and Release 🚀
 on: [workflow_dispatch]
 
 concurrency:
@@ -50,6 +50,16 @@ jobs:
           cat custom_components/$GITHUB_REPO/manifest.json
           echo $tag_name > VERSION
 
+      - name: 📝　Publish release
+        uses: release-drafter/release-drafter@v6
+        id: release_published
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          name: Release ${{ steps.semver.outputs.next }}
+          tag: ${{ steps.semver.outputs.next }}
+          publish: true
+
       - name: "✏️　Generate release changelog"
         uses: janheinrichmerker/action-github-changelog-generator@v2.4
         with:
@@ -62,8 +72,35 @@ jobs:
           unreleased: false
           addSections: '{"documentation":{"prefix":"**Documentation:**","labels":["documentation"]}}'
 
-      - name: 🧾 Display version info
+      - name: ✅　Commit release notes and bump version
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: "VERSION CHANGELOG.md custom_components/${{ github.event.repository.name }}/manifest.json"
+          message: "chore(release): changelog & bump version to ${{ steps.semver.outputs.next }}"
+          push: true
+
+      - name: 📦 Create zip file
         run: |
-          pwd
-          find /home
-          cat CHANGELOG.md
+          cd custom_components/${{ github.event.repository.name }}
+          zip -r "${{ github.event.repository.name }}.zip" .
+          mv "${{ github.event.repository.name }}.zip" ../..
+
+      - name: 📎 Upload zip to release
+        run: |
+          gh release upload "${{ steps.semver.outputs.next }}" "${{ github.event.repository.name }}.zip"
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
+
+      - name: 🚮 Remove pre-releases
+        run: |
+          gh release list --json tagName,isPrerelease -q '.[] | select(.isPrerelease == true) | .tagName' | while read -r tag_name; do
+            echo "Deleting pre-release with tag: $tag_name"
+            # Delete the release
+            gh release delete "$tag_name" --yes
+            # Delete the Git tag
+            echo "Deleting Git tag: $tag_name"
+            git push origin --delete "$tag_name" || echo "Failed to delete tag $tag_name from remote"
+            git tag -d "$tag_name" || echo "Failed to delete tag $tag_name locally"
+          done
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
