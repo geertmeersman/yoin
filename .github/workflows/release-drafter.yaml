@@ -34,4 +34,6 @@ jobs:
         uses: release-drafter/release-drafter@v6.1.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          commitish: ${{ github.ref }}
           tag: ${{ steps.semver.outputs.next }}
