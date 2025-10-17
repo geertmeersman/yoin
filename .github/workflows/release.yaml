@@ -65,5 +65,5 @@ jobs:
       - name: 🧾 Display version info
         run: |
           pwd
-          find /
+          find /home
           cat CHANGELOG.md
