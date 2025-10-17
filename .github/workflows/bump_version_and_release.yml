@@ -1,4 +1,4 @@
-name: Release - Bump and Release
+name: Release - Bump and Release 🚀
 on: [workflow_dispatch]
 
 concurrency:
