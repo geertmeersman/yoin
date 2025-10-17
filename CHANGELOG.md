@@ -1,5 +1,46 @@
 # Changelog
 
+## [v0.3.1](https://github.com/geertmeersman/yoin/tree/v0.3.1) (2025-10-17)
+
+[Full Changelog](https://github.com/geertmeersman/yoin/compare/v0.3.0...v0.3.1)
+
+**Merged pull requests:**
+
+- fix: temp release workflow [\#122](https://github.com/geertmeersman/yoin/pull/122) ([geertmeersman](https://github.com/geertmeersman))
+- fix: temp release workflow [\#121](https://github.com/geertmeersman/yoin/pull/121) ([geertmeersman](https://github.com/geertmeersman))
+- fix: temp release workflow [\#120](https://github.com/geertmeersman/yoin/pull/120) ([geertmeersman](https://github.com/geertmeersman))
+- fix: temp release workflow [\#119](https://github.com/geertmeersman/yoin/pull/119) ([geertmeersman](https://github.com/geertmeersman))
+- fix: temp release workflow [\#118](https://github.com/geertmeersman/yoin/pull/118) ([geertmeersman](https://github.com/geertmeersman))
+- fix: generate CHANGELOG.md [\#117](https://github.com/geertmeersman/yoin/pull/117) ([geertmeersman](https://github.com/geertmeersman))
+- fix: final publish release workflow [\#116](https://github.com/geertmeersman/yoin/pull/116) ([geertmeersman](https://github.com/geertmeersman))
+- fix: publish release workflow [\#115](https://github.com/geertmeersman/yoin/pull/115) ([geertmeersman](https://github.com/geertmeersman))
+- fix: publish release workflow [\#114](https://github.com/geertmeersman/yoin/pull/114) ([geertmeersman](https://github.com/geertmeersman))
+- fix: publish release workflow [\#113](https://github.com/geertmeersman/yoin/pull/113) ([geertmeersman](https://github.com/geertmeersman))
+- fix: publish release workflow [\#112](https://github.com/geertmeersman/yoin/pull/112) ([geertmeersman](https://github.com/geertmeersman))
+- fix: publish release workflow [\#111](https://github.com/geertmeersman/yoin/pull/111) ([geertmeersman](https://github.com/geertmeersman))
+- fix: publish release workflow [\#110](https://github.com/geertmeersman/yoin/pull/110) ([geertmeersman](https://github.com/geertmeersman))
+- fix: publish release workflow [\#109](https://github.com/geertmeersman/yoin/pull/109) ([geertmeersman](https://github.com/geertmeersman))
+- fix: use PAT in release drafter [\#108](https://github.com/geertmeersman/yoin/pull/108) ([geertmeersman](https://github.com/geertmeersman))
+- chore: publish release workflow [\#107](https://github.com/geertmeersman/yoin/pull/107) ([geertmeersman](https://github.com/geertmeersman))
+- fix: tag & commitish in release workflow [\#106](https://github.com/geertmeersman/yoin/pull/106) ([geertmeersman](https://github.com/geertmeersman))
+- fix: release drafter version number [\#105](https://github.com/geertmeersman/yoin/pull/105) ([geertmeersman](https://github.com/geertmeersman))
+- fix: workflows [\#104](https://github.com/geertmeersman/yoin/pull/104) ([geertmeersman](https://github.com/geertmeersman))
+- chore\(deps\): bump ruff from 0.13.3 to 0.14.0 [\#103](https://github.com/geertmeersman/yoin/pull/103) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump github/codeql-action from 3 to 4 [\#102](https://github.com/geertmeersman/yoin/pull/102) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump ruff from 0.13.2 to 0.13.3 [\#101](https://github.com/geertmeersman/yoin/pull/101) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump ruff from 0.13.1 to 0.13.2 [\#100](https://github.com/geertmeersman/yoin/pull/100) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump ruff from 0.13.0 to 0.13.1 [\#99](https://github.com/geertmeersman/yoin/pull/99) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump ruff from 0.12.12 to 0.13.0 [\#98](https://github.com/geertmeersman/yoin/pull/98) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump ruff from 0.12.11 to 0.12.12 [\#97](https://github.com/geertmeersman/yoin/pull/97) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump actions/stale from 9 to 10 [\#96](https://github.com/geertmeersman/yoin/pull/96) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump actions/setup-python from 5 to 6 [\#95](https://github.com/geertmeersman/yoin/pull/95) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump actions/github-script from 7 to 8 [\#94](https://github.com/geertmeersman/yoin/pull/94) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump ruff from 0.12.10 to 0.12.11 [\#93](https://github.com/geertmeersman/yoin/pull/93) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump ruff from 0.12.9 to 0.12.10 [\#92](https://github.com/geertmeersman/yoin/pull/92) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump ruff from 0.12.8 to 0.12.9 [\#91](https://github.com/geertmeersman/yoin/pull/91) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump actions/checkout from 4 to 5 [\#90](https://github.com/geertmeersman/yoin/pull/90) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump ruff from 0.12.7 to 0.12.8 [\#89](https://github.com/geertmeersman/yoin/pull/89) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v0.3.0](https://github.com/geertmeersman/yoin/tree/v0.3.0) (2025-08-06)
 
 [Full Changelog](https://github.com/geertmeersman/yoin/compare/v0.2.0...v0.3.0)
