@@ -64,5 +64,7 @@ jobs:
 
       - name: 🧾 Display version info
         run: |
+          pwd
+          cat /github/workspace/CHANGELOG.md
           find .
           cat CHANGELOG.md
