@@ -44,7 +44,6 @@ jobs:
         with:
           message: "docs: Commit release notes and bump version ${{ steps.release_drafter.outputs.tag_name }}"
 
-
       - name: 📦 Created zipped release package
         shell: bash
         run: |

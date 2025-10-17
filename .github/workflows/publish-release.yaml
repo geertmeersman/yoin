@@ -70,10 +70,11 @@ jobs:
         with:
           inputs: ${{ github.workspace }}/custom_components/${{ github.event.repository.name }}/${{ github.event.repository.name }}.zip
 
-      - name: ⬆️ Upload zip to release
-        uses: softprops/action-gh-release@v2.4.1
+      - name: 📎 Upload zip file to release
+        uses: actions/upload-artifact@v4
         with:
-          files: ${{ github.workspace }}/custom_components/${{ github.event.repository.name }}/${{ github.event.repository.name }}.zip
+          name: release-artifact
+          path: "${{ github.event.repository.name }}.zip"
 
       - name: 🚀 Publish release
         uses: release-drafter/release-drafter@v6
