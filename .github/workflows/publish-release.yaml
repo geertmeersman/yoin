@@ -57,7 +57,7 @@ jobs:
       - name: ✅　Commit release notes and bump version
         uses: EndBug/add-and-commit@v9
         with:
-          message: "docs: Commit release notes and bump version ${{ steps.semver.outputs.next }}"
+          message: "docs: Release notes and bump version ${{ steps.semver.outputs.next }}"
 
       - name: 📦 Created zipped release package
         shell: bash
@@ -74,7 +74,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: release-artifact
-          path: "${{ github.event.repository.name }}.zip"
+          path: ${{ github.workspace }}/custom_components/${{ github.event.repository.name }}/${{ github.event.repository.name }}.zip
 
       - name: 🚀 Publish release
         uses: release-drafter/release-drafter@v6
@@ -83,3 +83,17 @@ jobs:
           tag: ${{ steps.semver.outputs.next }}
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+
+      - name: 🚮 Remove pre-releases
+        run: |
+          gh release list --json tagName,isPrerelease -q '.[] | select(.isPrerelease == true) | .tagName' | while read -r tag_name; do
+            echo "Deleting pre-release with tag: $tag_name"
+            # Delete the release
+            gh release delete "$tag_name" --yes
+            # Delete the Git tag
+            echo "Deleting Git tag: $tag_name"
+            git push origin --delete "$tag_name" || echo "Failed to delete tag $tag_name from remote"
+            git tag -d "$tag_name" || echo "Failed to delete tag $tag_name locally"
+          done
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
