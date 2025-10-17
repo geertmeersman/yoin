@@ -1,0 +1,20 @@
+name: 🚀 Publish Release
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  publish_release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🚀 Publish release
+        uses: release-drafter/release-drafter@v6
+        with:
+          publish: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
