@@ -9,9 +9,36 @@ permissions:
 
 jobs:
   publish_release:
+    name: Publish Release
     runs-on: ubuntu-latest
 
     steps:
+      - name: ⤵️ Checkout code
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: 🔢 Calculate next semantic version
+        id: semver
+        uses: ietf-tools/semver-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
+
+      - name: 🧾 Display version info
+        run: |
+          echo "Current version: ${{ steps.semver.outputs.current }}"
+          echo "Next version: ${{ steps.semver.outputs.next }}"
+
+      - name: 📝 Update draft release with calculated version
+        uses: release-drafter/release-drafter@v6
+        id: draft_release
+        with:
+          name: Release ${{ steps.semver.outputs.next }}
+          tag: ${{ steps.semver.outputs.next }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: 🚀 Publish release
         uses: release-drafter/release-drafter@v6
         with:
