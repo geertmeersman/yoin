@@ -46,6 +46,7 @@ When adding a hub of the integration, it might take 1 minute to complete the add
 [![manifest version](https://img.shields.io/github/manifest-json/v/geertmeersman/yoin/master?filename=custom_components%2Fyoin%2Fmanifest.json)](https://github.com/geertmeersman/yoin)
 [![github release](https://img.shields.io/github/v/release/geertmeersman/yoin?logo=github)](https://github.com/geertmeersman/yoin/releases)
 [![github release date](https://img.shields.io/github/release-date/geertmeersman/yoin)](https://github.com/geertmeersman/yoin/releases)
+[![Downloads (latest release)](https://img.shields.io/github/downloads/geertmeersman/yoin/latest/total)](https://github.com/geertmeersman/yoin/releases/latest)
 [![github last-commit](https://img.shields.io/github/last-commit/geertmeersman/yoin)](https://github.com/geertmeersman/yoin/commits)
 [![github contributors](https://img.shields.io/github/contributors/geertmeersman/yoin)](https://github.com/geertmeersman/yoin/graphs/contributors)
 [![github commit activity](https://img.shields.io/github/commit-activity/y/geertmeersman/yoin?logo=github)](https://github.com/geertmeersman/yoin/commits/main)
