@@ -1,11 +1,40 @@
 # Changelog
 
-## [v0.3.1](https://github.com/geertmeersman/yoin/tree/v0.3.1) (2025-10-17)
+## [v0.3.1](https://github.com/geertmeersman/yoin/tree/v0.3.1) (2026-10-23)
 
 [Full Changelog](https://github.com/geertmeersman/yoin/compare/v0.3.0...v0.3.1)
 
 **Merged pull requests:**
 
+- fix: add Release prefix to release name template [\#152](https://github.com/geertmeersman/yoin/pull/152) ([geertmeersman](https://github.com/geertmeersman))
+- fix: let release-drafter determine version via semver-increment, remove semver-action [\#151](https://github.com/geertmeersman/yoin/pull/151) ([geertmeersman](https://github.com/geertmeersman))
+- fix: migrate release-drafter to new format, remove deprecated version-resolver [\#150](https://github.com/geertmeersman/yoin/pull/150) ([geertmeersman](https://github.com/geertmeersman))
+- fix: add semver-increment patch to Maintenance and Documentation categories [\#149](https://github.com/geertmeersman/yoin/pull/149) ([geertmeersman](https://github.com/geertmeersman))
+- chore: only trigger release drafter on custom\_components changes [\#147](https://github.com/geertmeersman/yoin/pull/147) ([geertmeersman](https://github.com/geertmeersman))
+- chore: update release drafter template, remove beta release and dev-current workflows [\#146](https://github.com/geertmeersman/yoin/pull/146) ([geertmeersman](https://github.com/geertmeersman))
+- feat: add workflow to auto-label PRs without custom\_components changes as skip-changelog [\#145](https://github.com/geertmeersman/yoin/pull/145) ([geertmeersman](https://github.com/geertmeersman))
+- docs: add downloads \(latest release\) badge to README [\#144](https://github.com/geertmeersman/yoin/pull/144) ([geertmeersman](https://github.com/geertmeersman))
+- chore: add local brand assets [\#143](https://github.com/geertmeersman/yoin/pull/143) ([geertmeersman](https://github.com/geertmeersman))
+- chore: add semver fallback for missing tags in release workflows [\#142](https://github.com/geertmeersman/yoin/pull/142) ([geertmeersman](https://github.com/geertmeersman))
+- chore: update funding, issue templates, and workflows; remove unused … [\#141](https://github.com/geertmeersman/yoin/pull/141) ([geertmeersman](https://github.com/geertmeersman))
+- chore\(deps\): bump EndBug/add-and-commit from 10 to 11 [\#140](https://github.com/geertmeersman/yoin/pull/140) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump actions/stale from 10 to 11 [\#139](https://github.com/geertmeersman/yoin/pull/139) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump actions/checkout from 6 to 7 [\#138](https://github.com/geertmeersman/yoin/pull/138) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump actions/dependency-review-action from 4 to 5 [\#137](https://github.com/geertmeersman/yoin/pull/137) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump actions/github-script from 8 to 9 [\#136](https://github.com/geertmeersman/yoin/pull/136) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump hugo19941994/delete-draft-releases from 2.0.0 to 3.0.0 [\#135](https://github.com/geertmeersman/yoin/pull/135) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump EndBug/add-and-commit from 9 to 10 [\#134](https://github.com/geertmeersman/yoin/pull/134) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump release-drafter/release-drafter from 6 to 7 [\#133](https://github.com/geertmeersman/yoin/pull/133) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump actions/upload-artifact from 6 to 7 [\#132](https://github.com/geertmeersman/yoin/pull/132) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump actions/upload-artifact from 5 to 6 [\#131](https://github.com/geertmeersman/yoin/pull/131) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump actions/checkout from 5 to 6 [\#130](https://github.com/geertmeersman/yoin/pull/130) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump actions/upload-artifact from 4 to 5 [\#129](https://github.com/geertmeersman/yoin/pull/129) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore: archived ruff-actions replaced [\#128](https://github.com/geertmeersman/yoin/pull/128) ([geertmeersman](https://github.com/geertmeersman))
+- chore\(release\): improved release workflow [\#127](https://github.com/geertmeersman/yoin/pull/127) ([geertmeersman](https://github.com/geertmeersman))
+- chore\(deps\): bump ruff from 0.14.0 to 0.14.1 [\#126](https://github.com/geertmeersman/yoin/pull/126) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump colorlog from 6.9.0 to 6.10.1 [\#125](https://github.com/geertmeersman/yoin/pull/125) ([dependabot[bot]](https://github.com/apps/dependabot))
+- fix: restore lint workflow [\#124](https://github.com/geertmeersman/yoin/pull/124) ([geertmeersman](https://github.com/geertmeersman))
+- fix: temp release workflow removed [\#123](https://github.com/geertmeersman/yoin/pull/123) ([geertmeersman](https://github.com/geertmeersman))
 - fix: temp release workflow [\#122](https://github.com/geertmeersman/yoin/pull/122) ([geertmeersman](https://github.com/geertmeersman))
 - fix: temp release workflow [\#121](https://github.com/geertmeersman/yoin/pull/121) ([geertmeersman](https://github.com/geertmeersman))
 - fix: temp release workflow [\#120](https://github.com/geertmeersman/yoin/pull/120) ([geertmeersman](https://github.com/geertmeersman))
@@ -68,7 +97,7 @@
 
 [Full Changelog](https://github.com/geertmeersman/yoin/compare/v0.1.4...v0.2.0)
 
-**Fixed bugs:**
+**Closed issues:**
 
 - Custom integration 'yoin' sets option flow config\_entry explicitly, which is deprecated [\#62](https://github.com/geertmeersman/yoin/issues/62)
 
