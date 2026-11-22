@@ -57,7 +57,7 @@ When adding a hub of the integration, it might take 1 minute to complete the add
   - [Features](#features)
   - [Table of Contents](#table-of-contents)
   - [Installation](#installation)
-    - [Using HACS (recommended)](#using-hacs-recommended)
+    - [Using the Home Assistant Marketplace (recommended)](#using-the-home-assistant-marketplace-recommended)
     - [Manual](#manual)
   - [Contributions are welcome](#contributions-are-welcome)
   - [Troubleshooting](#troubleshooting)
